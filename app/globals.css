@@ -695,3 +695,24 @@ body {
 .dark .mysterious-glow:hover {
   box-shadow: 0 0 45px rgba(70, 130, 180, 0.5);
 }
+
+/* Smooth animations to prevent flickering */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
