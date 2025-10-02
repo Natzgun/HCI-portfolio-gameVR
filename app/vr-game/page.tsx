@@ -138,7 +138,7 @@ export default function VRGamePage() {
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
               Safe Yourself
-              <span className="block text-primary mt-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="block text-primary mt-2">
                 Proceso de desarrollo
               </span>
             </h1>
