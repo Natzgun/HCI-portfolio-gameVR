@@ -1,14 +1,61 @@
+"use client"
+
 import { Navigation } from "@/components/navigation"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+import { useEffect, useState } from "react"
 
 export default function HomePage() {
+  const [showIntro, setShowIntro] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false)
+    }, 7000) // Hide intro after 7 seconds
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <div className="min-h-screen relative overflow-hidden">
+      {/* Steam Big Picture Style Intro */}
+      {showIntro && (
+        <div className="steam-intro">
+          <div className="intro-fog-container">
+            <div className="intro-fog fog-1"></div>
+            <div className="intro-fog fog-2"></div>
+            <div className="intro-fog fog-3"></div>
+            <div className="intro-fog fog-4"></div>
+            <div className="intro-fog fog-5"></div>
+          </div>
+          <div className="intro-title">
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-foreground mb-4">
+              HUYE
+            </h1>
+            <p className="text-xl md:text-2xl text-primary font-medium">
+              Experiencia Inmersiva
+            </p>
+          </div>
+        </div>
+      )}
+
       <Navigation />
 
-      {/* Animated Background */}
+      {/* Animated Background with GIF */}
       <div className="fixed inset-0 -z-10">
+        {/* GIF Background - Bottom layer */}
+        <div className="gif-background">
+          <img 
+            src="/backrooms-fog-background.gif" 
+            alt="Backrooms fog background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Overlay for better readability */}
+        <div className="gif-overlay"></div>
+        
+        {/* Particles and effects on top */}
         <div className="suspense-background">
           <div className="floating-particles">
             <div className="particle particle-1"></div>
@@ -26,7 +73,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Content */}
-      <section className="min-h-screen flex items-center justify-center px-4">
+      <section className="main-content min-h-screen flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Title */}
           <div className="mb-16">
@@ -34,7 +81,10 @@ export default function HomePage() {
               HUYE
             </h1>
             <p className="text-2xl md:text-3xl text-primary font-medium mb-2">
-              Experiencia Interactiva
+              Experiencia Inmersiva
+            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
+              Un juego de terror psicológico donde cada decisión puede ser la diferencia entre escapar o quedar atrapado para siempre.
             </p>
           </div>
 
@@ -42,7 +92,7 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
             {/* VR Game Button */}
             <Link href="/vr-game" className="group">
-              <div className="main-button vr-button">
+              <div className="main-button vr-button mysterious-glow">
                 <div className="button-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +105,13 @@ export default function HomePage() {
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
-                <span className="button-text">Juego VR</span>
+                <span className="button-text">Iniciar Experiencia</span>
                 <div className="button-glow"></div>
               </div>
             </Link>
 
             {/* Final Project Button - Disabled */}
-            <div className="main-button final-button disabled-button">
+            <div className="main-button final-button disabled-button mysterious-glow">
               <div className="button-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +128,7 @@ export default function HomePage() {
                   <circle cx="12" cy="12" r="2" fill="currentColor"/>
                 </svg>
               </div>
-              <span className="button-text">Proyecto Final</span>
+              <span className="button-text">Documentación</span>
               <div className="button-glow accent-glow"></div>
             </div>
           </div>

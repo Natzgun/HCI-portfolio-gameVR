@@ -4,76 +4,76 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to dreamy pastel horror theme with soft, eerie colors */
-  --background: oklch(0.97 0.02 320); /* Soft lavender white */
-  --foreground: oklch(0.2 0.05 280); /* Deep purple-gray */
-  --card: oklch(0.98 0.01 300); /* Pale pink-white */
-  --card-foreground: oklch(0.2 0.05 280);
-  --popover: oklch(0.98 0.01 300);
-  --popover-foreground: oklch(0.2 0.05 280);
-  --primary: oklch(0.6 0.12 320); /* Dreamy purple */
-  --primary-foreground: oklch(0.97 0.02 320);
-  --secondary: oklch(0.92 0.03 340); /* Soft pink */
-  --secondary-foreground: oklch(0.2 0.05 280);
-  --muted: oklch(0.94 0.02 310); /* Muted lavender */
-  --muted-foreground: oklch(0.5 0.04 290);
-  --accent: oklch(0.7 0.15 200); /* Ethereal cyan */
-  --accent-foreground: oklch(0.15 0.03 280);
-  --destructive: oklch(0.65 0.18 15); /* Soft coral red */
-  --destructive-foreground: oklch(0.97 0.02 320);
-  --border: oklch(0.88 0.03 320); /* Subtle purple border */
-  --input: oklch(0.88 0.03 320);
-  --ring: oklch(0.7 0.15 200);
-  --chart-1: oklch(0.6 0.12 320);
-  --chart-2: oklch(0.7 0.15 200);
-  --chart-3: oklch(0.65 0.12 280);
-  --chart-4: oklch(0.7 0.14 160);
-  --chart-5: oklch(0.6 0.16 40);
+  /* Serious and mysterious dark theme */
+  --background: oklch(0.05 0.01 240); /* Almost black navy */
+  --foreground: oklch(0.88 0.02 240); /* Cold steel gray */
+  --card: oklch(0.08 0.02 240); /* Dark steel blue */
+  --card-foreground: oklch(0.85 0.02 240);
+  --popover: oklch(0.08 0.02 240);
+  --popover-foreground: oklch(0.85 0.02 240);
+  --primary: oklch(0.35 0.08 240); /* Steel blue */
+  --primary-foreground: oklch(0.95 0.01 240);
+  --secondary: oklch(0.12 0.03 260); /* Dark slate */
+  --secondary-foreground: oklch(0.85 0.02 240);
+  --muted: oklch(0.1 0.02 240); /* Dark muted */
+  --muted-foreground: oklch(0.55 0.02 240);
+  --accent: oklch(0.25 0.06 200); /* Cold cyan accent */
+  --accent-foreground: oklch(0.95 0.01 240);
+  --destructive: oklch(0.4 0.15 15); /* Muted red */
+  --destructive-foreground: oklch(0.95 0.01 240);
+  --border: oklch(0.15 0.02 240); /* Subtle steel border */
+  --input: oklch(0.12 0.02 240);
+  --ring: oklch(0.35 0.08 240);
+  --chart-1: oklch(0.35 0.08 240);
+  --chart-2: oklch(0.25 0.06 200);
+  --chart-3: oklch(0.3 0.07 260);
+  --chart-4: oklch(0.28 0.06 280);
+  --chart-5: oklch(0.32 0.08 220);
   --radius: 0.75rem;
-  --sidebar: oklch(0.97 0.02 320);
-  --sidebar-foreground: oklch(0.2 0.05 280);
-  --sidebar-primary: oklch(0.6 0.12 320);
-  --sidebar-primary-foreground: oklch(0.97 0.02 320);
-  --sidebar-accent: oklch(0.92 0.03 340);
-  --sidebar-accent-foreground: oklch(0.2 0.05 280);
-  --sidebar-border: oklch(0.88 0.03 320);
-  --sidebar-ring: oklch(0.7 0.15 200);
+  --sidebar: oklch(0.05 0.01 240);
+  --sidebar-foreground: oklch(0.88 0.02 240);
+  --sidebar-primary: oklch(0.35 0.08 240);
+  --sidebar-primary-foreground: oklch(0.95 0.01 240);
+  --sidebar-accent: oklch(0.12 0.03 260);
+  --sidebar-accent-foreground: oklch(0.85 0.02 240);
+  --sidebar-border: oklch(0.15 0.02 240);
+  --sidebar-ring: oklch(0.35 0.08 240);
 }
 
 .dark {
-  /* Enhanced dark mode with deep horror atmosphere and pastel accents */
-  --background: oklch(0.08 0.03 280); /* Deep purple-black */
-  --foreground: oklch(0.92 0.02 320); /* Soft lavender white */
-  --card: oklch(0.12 0.04 290); /* Dark purple card */
-  --card-foreground: oklch(0.92 0.02 320);
-  --popover: oklch(0.12 0.04 290);
-  --popover-foreground: oklch(0.92 0.02 320);
-  --primary: oklch(0.7 0.15 320); /* Bright dreamy purple */
-  --primary-foreground: oklch(0.08 0.03 280);
-  --secondary: oklch(0.18 0.05 300); /* Dark purple-pink */
-  --secondary-foreground: oklch(0.92 0.02 320);
-  --muted: oklch(0.16 0.04 290); /* Muted dark purple */
-  --muted-foreground: oklch(0.65 0.03 310);
-  --accent: oklch(0.75 0.18 200); /* Glowing cyan */
-  --accent-foreground: oklch(0.08 0.03 280);
-  --destructive: oklch(0.7 0.2 15); /* Bright coral */
-  --destructive-foreground: oklch(0.92 0.02 320);
-  --border: oklch(0.22 0.05 290); /* Subtle purple border */
-  --input: oklch(0.22 0.05 290);
-  --ring: oklch(0.75 0.18 200);
-  --chart-1: oklch(0.7 0.15 320);
-  --chart-2: oklch(0.75 0.18 200);
-  --chart-3: oklch(0.68 0.14 280);
-  --chart-4: oklch(0.72 0.16 160);
-  --chart-5: oklch(0.65 0.18 40);
-  --sidebar: oklch(0.1 0.03 280);
-  --sidebar-foreground: oklch(0.92 0.02 320);
-  --sidebar-primary: oklch(0.7 0.15 320);
-  --sidebar-primary-foreground: oklch(0.08 0.03 280);
-  --sidebar-accent: oklch(0.18 0.05 300);
-  --sidebar-accent-foreground: oklch(0.92 0.02 320);
-  --sidebar-border: oklch(0.22 0.05 290);
-  --sidebar-ring: oklch(0.75 0.18 200);
+  /* Enhanced dark mysterious theme */
+  --background: oklch(0.03 0.01 240); /* Deep dark navy */
+  --foreground: oklch(0.9 0.01 240); /* Cold white */
+  --card: oklch(0.06 0.02 240); /* Dark metallic */
+  --card-foreground: oklch(0.9 0.01 240);
+  --popover: oklch(0.06 0.02 240);
+  --popover-foreground: oklch(0.9 0.01 240);
+  --primary: oklch(0.45 0.12 240); /* Steel blue */
+  --primary-foreground: oklch(0.95 0.01 240);
+  --secondary: oklch(0.1 0.03 260); /* Very dark slate */
+  --secondary-foreground: oklch(0.9 0.01 240);
+  --muted: oklch(0.08 0.02 240); /* Deep muted */
+  --muted-foreground: oklch(0.6 0.02 240);
+  --accent: oklch(0.3 0.1 200); /* Dark cyan */
+  --accent-foreground: oklch(0.95 0.01 240);
+  --destructive: oklch(0.45 0.18 15); /* Professional red */
+  --destructive-foreground: oklch(0.95 0.01 240);
+  --border: oklch(0.12 0.03 240); /* Steel border */
+  --input: oklch(0.1 0.03 240);
+  --ring: oklch(0.45 0.12 240);
+  --chart-1: oklch(0.45 0.12 240);
+  --chart-2: oklch(0.3 0.1 200);
+  --chart-3: oklch(0.35 0.1 260);
+  --chart-4: oklch(0.33 0.09 280);
+  --chart-5: oklch(0.37 0.11 220);
+  --sidebar: oklch(0.04 0.01 240);
+  --sidebar-foreground: oklch(0.9 0.01 240);
+  --sidebar-primary: oklch(0.45 0.12 240);
+  --sidebar-primary-foreground: oklch(0.95 0.01 240);
+  --sidebar-accent: oklch(0.1 0.03 260);
+  --sidebar-accent-foreground: oklch(0.9 0.01 240);
+  --sidebar-border: oklch(0.12 0.03 240);
+  --sidebar-ring: oklch(0.45 0.12 240);
 }
 
 @theme inline {
@@ -164,13 +164,42 @@
   box-shadow: 0 0 50px rgba(112, 66, 248, 0.3);
 }
 
+/* GIF Background styles */
+.gif-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.gif-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gif-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    var(--background)/0.4 0%,
+    var(--background)/0.2 30%,
+    var(--background)/0.1 60%,
+    var(--background)/0.3 100%
+  );
+}
+
 /* Suspense animated background */
 .suspense-background {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: radial-gradient(circle at center, var(--background) 0%, var(--muted) 100%);
+  z-index: 3;
+  background: transparent;
 }
 
 .floating-particles {
@@ -178,6 +207,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 4;
 }
 
 .particle {
@@ -281,6 +311,7 @@
 .shadow-overlay {
   position: absolute;
   inset: 0;
+  z-index: 5;
   background: 
     radial-gradient(ellipse at top left, transparent 0%, var(--background)/20 50%, transparent 100%),
     radial-gradient(ellipse at bottom right, transparent 0%, var(--primary)/05 40%, transparent 100%);
@@ -299,6 +330,7 @@
 .vignette-overlay {
   position: absolute;
   inset: 0;
+  z-index: 6;
   background: radial-gradient(circle at center, transparent 30%, var(--background)/40 100%);
   pointer-events: none;
 }
@@ -387,26 +419,26 @@
 .vr-button .button-icon {
   background: var(--primary);
   box-shadow: 
-    0 0 40px rgba(112, 66, 248, 0.4),
+    0 0 40px rgba(70, 130, 180, 0.4),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .dark .vr-button .button-icon {
   box-shadow: 
-    0 0 60px rgba(112, 66, 248, 0.5),
+    0 0 60px rgba(70, 130, 180, 0.5),
     inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .final-button .button-icon {
   background: var(--accent);
   box-shadow: 
-    0 0 40px rgba(117, 190, 218, 0.4),
+    0 0 40px rgba(70, 130, 180, 0.3),
     inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .dark .final-button .button-icon {
   box-shadow: 
-    0 0 60px rgba(117, 190, 218, 0.5),
+    0 0 60px rgba(70, 130, 180, 0.4),
     inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
@@ -459,7 +491,7 @@
   }
 }
 
-/* Play button animation - More recognizable */
+/* Play button animation - More recognizable with mysterious theme */
 .vr-button .button-icon svg {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
@@ -467,7 +499,7 @@
 
 .vr-button:hover .button-icon svg {
   transform: scale(1.2) translateX(4px);
-  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.7));
+  filter: drop-shadow(0 0 25px rgba(70, 130, 180, 0.8));
   animation: playPulse 0.6s ease-in-out;
 }
 
@@ -521,4 +553,145 @@
   background: var(--muted)/20;
   border-radius: inherit;
   pointer-events: none;
+}
+
+/* Steam Big Picture Mode Style Introduction Animation */
+.steam-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: introFadeOut 4s ease-in-out 3s forwards;
+  pointer-events: none;
+}
+
+.steam-intro.hidden {
+  display: none;
+}
+
+@keyframes introFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Fog rising from bottom animation */
+.intro-fog-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.intro-fog {
+  position: absolute;
+  bottom: -50px;
+  width: 120%;
+  height: 200px;
+  background: radial-gradient(ellipse at center bottom, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 30%, 
+    transparent 70%);
+  filter: blur(20px);
+  animation: fogRiseUp 3s ease-out forwards;
+}
+
+.dark .intro-fog {
+  background: radial-gradient(ellipse at center bottom, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0.08) 30%, 
+    transparent 70%);
+}
+
+.fog-1 { left: -10%; animation-delay: 0s; }
+.fog-2 { left: 0%; animation-delay: 0.3s; }
+.fog-3 { left: 10%; animation-delay: 0.6s; }
+.fog-4 { left: 20%; animation-delay: 0.9s; }
+.fog-5 { left: 30%; animation-delay: 1.2s; }
+
+@keyframes fogRiseUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-300px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Intro title animation */
+.intro-title {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  animation: titleFadeIn 2s ease-out 0.5s both;
+}
+
+@keyframes titleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Main content fade in after intro */
+.main-content {
+  animation: contentFadeIn 1s ease-out 4s both;
+  opacity: 0;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced mysterious atmosphere */
+body {
+  background: radial-gradient(circle at center, var(--background) 0%, oklch(0.02 0.01 240) 100%);
+}
+
+/* Professional glow effects */
+.mysterious-glow {
+  box-shadow: 0 0 20px rgba(70, 130, 180, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dark .mysterious-glow {
+  box-shadow: 0 0 25px rgba(70, 130, 180, 0.3);
+}
+
+.mysterious-glow:hover {
+  box-shadow: 0 0 35px rgba(70, 130, 180, 0.4);
+}
+
+.dark .mysterious-glow:hover {
+  box-shadow: 0 0 45px rgba(70, 130, 180, 0.5);
 }
