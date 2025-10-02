@@ -83,9 +83,13 @@ export default function TeamPage() {
       <section className="py-16 sm:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
-              Conoce a nuestro equipo
-            </h1>
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/worstg.png" 
+                alt="Worst Generation Logo"
+                className="w-auto drop-shadow-lg logo-glow scale-[0.7]"
+              />
+            </div>
             {/* <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-muted-foreground text-pretty">
               A diverse group of passionate researchers, developers, and designers united by our commitment to creating
               innovative and inclusive virtual reality experiences.
@@ -169,12 +173,6 @@ export default function TeamPage() {
       <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Equipo alfa buena maravilla onda dinamita escuadrón lobo</h2>
-              <p className="text-lg text-muted-foreground">
-                Cada miembro del equipo aporta una experiencia y perspectiva única a nuestro de desarrollo colaborativo.
-              </p>
-            </div>
 
             <div className="grid gap-8 md:grid-cols-2">
               {teamMembers.map((member) => (
@@ -249,47 +247,6 @@ export default function TeamPage() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Collaboration & Contact */}
-      <section className="py-16 bg-muted/20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-6">Collaboration & Research</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We're always interested in collaborating with fellow researchers, industry partners, and organizations
-              working to advance the field of human-computer interaction and accessible technology.
-            </p>
-
-            <div className="grid gap-6 md:grid-cols-2">
-              <Card className="border-0 bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Research Partnerships</h3>
-                  <p className="text-muted-foreground mb-6">
-                    Interested in collaborative research opportunities or want to learn more about our methodologies?
-                    We'd love to connect with other researchers and institutions.
-                  </p>
-                  <Button variant="outline" className="w-full bg-transparent">
-                    Contact Research Team
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-0 bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Industry Collaboration</h3>
-                  <p className="text-muted-foreground mb-6">
-                    Looking to implement accessible VR solutions or need consultation on inclusive design practices? Our
-                    team offers expertise and guidance.
-                  </p>
-                  <Button variant="outline" className="w-full bg-transparent">
-                    Industry Inquiries
-                  </Button>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>

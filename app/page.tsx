@@ -11,7 +11,7 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false)
-    }, 7000) // Hide intro after 7 seconds
+    }, 3000) // Hide intro after 3 seconds
 
     return () => clearTimeout(timer)
   }, [])
@@ -29,11 +29,15 @@ export default function HomePage() {
             <div className="intro-fog fog-5"></div>
           </div>
           <div className="intro-title">
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-foreground mb-4">
-              HUYE
-            </h1>
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/worstg.png" 
+                alt="Worst Generation Logo"
+                className="w-auto drop-shadow-lg logo-glow scale-[0.7]"
+              />
+            </div>
             <p className="text-xl md:text-2xl text-primary font-medium">
-              Experiencia Inmersiva
+              Inmersive Experience
             </p>
           </div>
         </div>
@@ -75,16 +79,17 @@ export default function HomePage() {
       {/* Main Content */}
       <section className="main-content min-h-screen flex items-center justify-center px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Title */}
+          {/* Logo and Title */}
           <div className="mb-16">
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-foreground mb-6 drop-shadow-lg">
-              HUYE
-            </h1>
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/worstg.png" 
+                alt="Worst Generation Logo"
+                className="w-auto drop-shadow-lg logo-glow scale-[0.7]"
+              />
+            </div>
             <p className="text-2xl md:text-3xl text-primary font-medium mb-2">
-              Experiencia Inmersiva
-            </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
-              Un juego de terror psicológico donde cada decisión puede ser la diferencia entre escapar o quedar atrapado para siempre.
+              Inmersive Experience
             </p>
           </div>
 
@@ -105,7 +110,7 @@ export default function HomePage() {
                     <path d="M8 5v14l11-7z"/>
                   </svg>
                 </div>
-                <span className="button-text">Iniciar Experiencia</span>
+                <span className="button-text">Juego VR</span>
                 <div className="button-glow"></div>
               </div>
             </Link>
@@ -128,7 +133,7 @@ export default function HomePage() {
                   <circle cx="12" cy="12" r="2" fill="currentColor"/>
                 </svg>
               </div>
-              <span className="button-text">Documentación</span>
+              <span className="button-text">Proyecto Final</span>
               <div className="button-glow accent-glow"></div>
             </div>
           </div>

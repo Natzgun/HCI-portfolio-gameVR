@@ -567,7 +567,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: introFadeOut 4s ease-in-out 3s forwards;
+  animation: introFadeOut 2s ease-in-out 1s forwards;
   pointer-events: none;
 }
 
@@ -606,7 +606,7 @@
     rgba(255, 255, 255, 0.05) 30%, 
     transparent 70%);
   filter: blur(20px);
-  animation: fogRiseUp 3s ease-out forwards;
+  animation: fogRiseUp 1.5s ease-out forwards;
 }
 
 .dark .intro-fog {
@@ -617,10 +617,10 @@
 }
 
 .fog-1 { left: -10%; animation-delay: 0s; }
-.fog-2 { left: 0%; animation-delay: 0.3s; }
-.fog-3 { left: 10%; animation-delay: 0.6s; }
-.fog-4 { left: 20%; animation-delay: 0.9s; }
-.fog-5 { left: 30%; animation-delay: 1.2s; }
+.fog-2 { left: 0%; animation-delay: 0.15s; }
+.fog-3 { left: 10%; animation-delay: 0.3s; }
+.fog-4 { left: 20%; animation-delay: 0.45s; }
+.fog-5 { left: 30%; animation-delay: 0.6s; }
 
 @keyframes fogRiseUp {
   0% {
@@ -642,7 +642,7 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  animation: titleFadeIn 2s ease-out 0.5s both;
+  animation: titleFadeIn 1s ease-out 0.2s both;
 }
 
 @keyframes titleFadeIn {
@@ -658,7 +658,7 @@
 
 /* Main content fade in after intro */
 .main-content {
-  animation: contentFadeIn 1s ease-out 4s both;
+  animation: contentFadeIn 0.8s ease-out 2s both;
   opacity: 0;
 }
 

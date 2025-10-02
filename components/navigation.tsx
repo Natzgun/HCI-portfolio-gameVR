@@ -33,14 +33,11 @@ export function Navigation() {
 						className="flex items-center space-x-2"
 						onClick={closeMenu}
 					>
-						<div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center horror-glow">
-							<span className="text-primary-foreground font-bold text-sm">
-								VR
-							</span>
-						</div>
-						<span className="font-bold text-lg text-primary">
-							IHC
-						</span>
+						<img 
+							src="/worstg.png" 
+							alt="Worst Generation Logo"
+							className="h-8 w-auto drop-shadow-lg logo-glow scale-[0.7]"
+						/>
 					</Link>
 
 					{/* Desktop Navigation - Centrada */}
