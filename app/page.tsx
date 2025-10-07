@@ -16,8 +16,20 @@ export default function HomePage() {
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    // Prevent scrolling on homepage
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+    
+    // Cleanup when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto'
+      document.body.style.height = 'auto'
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="h-screen relative overflow-hidden" data-page="homepage">
       {/* Steam Big Picture Style Intro */}
       {showIntro && (
         <div className="steam-intro">
@@ -77,24 +89,24 @@ export default function HomePage() {
       </div>
 
       {/* Main Content */}
-      <section className="main-content min-h-screen flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="main-content h-screen flex items-center justify-center px-4 py-8">
+        <div className="max-w-4xl mx-auto text-center flex flex-col justify-center h-full">
           {/* Logo and Title */}
-          <div className="mb-16">
-            <div className="flex justify-center mb-8">
+          <div className="mb-8">
+            <div className="flex justify-center mb-4">
               <img 
                 src="/worstg.png" 
                 alt="Worst Generation Logo"
-                className="w-auto drop-shadow-lg logo-glow scale-[0.7]"
+                className="w-auto drop-shadow-lg logo-glow scale-[0.5]"
               />
             </div>
-            <p className="text-2xl md:text-3xl text-primary font-medium mb-2">
+            <p className="text-lg md:text-xl text-primary font-medium mb-2">
               Inmersive Experience
             </p>
           </div>
 
           {/* Project Icons */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
             {/* VR Game Button */}
             <Link href="/vr-game" className="group">
               <div className="main-button vr-button mysterious-glow">

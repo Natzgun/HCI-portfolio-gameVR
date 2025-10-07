@@ -342,14 +342,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2.5rem;
-  border-radius: 2rem;
+  padding: 2rem 2rem;
+  border-radius: 1.5rem;
   background: var(--card);
   border: 2px solid var(--border);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   overflow: hidden;
-  min-width: 280px;
+  min-width: 220px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -676,6 +676,12 @@
 /* Enhanced mysterious atmosphere */
 body {
   background: radial-gradient(circle at center, var(--background) 0%, oklch(0.02 0.01 240) 100%);
+}
+
+/* Prevent scrolling on homepage */
+body:has([data-page="homepage"]) {
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* Professional glow effects */

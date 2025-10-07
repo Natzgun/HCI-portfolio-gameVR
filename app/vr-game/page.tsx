@@ -154,31 +154,31 @@ export default function VRGamePage() {
               <h2 className="text-4xl font-bold text-foreground mb-6">Worst Nightmare</h2>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-white font-medium mb-6 drop-shadow-lg">
-                  Una experiencia de realidad virtual inmersiva terapéutica
+                  Una experiencia de realidad virtual de horror y suspenso
                 </p>
                 <div className="text-left bg-card/95 backdrop-blur-md border border-border/70 rounded-lg p-6 mb-8 horror-glow shadow-2xl">
                   <h3 className="text-lg font-semibold text-white mb-4">Concepto Central</h3>
                   <p className="text-gray-100 leading-relaxed mb-4">
-                    Una experiencia VR que utiliza <span className="text-blue-300 font-medium">interacciones multimodales</span> (gestos, movimiento) 
-                    para guiar al usuario a través de tres niveles oníricos. El objetivo es enfrentar y re-contextualizar 
-                    sentimientos de ansiedad, soledad y el hábito de "terribilizar".
+                    Una experiencia VR de <span className="text-red-400 font-medium">horror psicológico</span> que utiliza interacciones multimodales 
+                    (gestos, movimiento) para sumergir al jugador en tres niveles terroríficos. El objetivo es sobrevivir 
+                    a pesadillas cada vez más intensas mientras enfrentas entidades misteriosas y resuelves enigmas macabros.
                   </p>
                   
                   <div className="grid md:grid-cols-2 gap-6 mt-6">
                     <div>
-                      <h4 className="text-sm font-semibold text-blue-300 mb-2">Problemas que Aborda:</h4>
+                      <h4 className="text-sm font-semibold text-red-400 mb-2">Elementos de Terror:</h4>
                       <ul className="text-sm text-gray-200 space-y-1">
-                        <li>• Dificultad para tomar decisiones</li>
-                        <li>• Gestión de pensamientos catastróficos</li>
-                        <li>• Ansiedad y soledad</li>
+                        <li>• Atmósfera opresiva y claustrofóbica</li>
+                        <li>• Entidades hostiles que acechan al jugador</li>
+                        <li>• Enigmas psicológicos perturbadores</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-blue-300 mb-2">Usuarios Objetivo:</h4>
+                      <h4 className="text-sm font-semibold text-red-400 mb-2">Audiencia Objetivo:</h4>
                       <ul className="text-sm text-gray-200 space-y-1">
-                        <li>• Pacientes en contextos terapéuticos</li>
-                        <li>• Psicólogos y profesionales</li>
-                        <li>• Adolescentes y adultos</li>
+                        <li>• Fanáticos del horror en VR</li>
+                        <li>• Jugadores de experiencias inmersivas</li>
+                        <li>• Adultos (18+ por contenido de terror)</li>
                       </ul>
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function VRGamePage() {
                         </div>
                       </div>
                       <h4 className="text-lg font-semibold text-white mb-2">HAND TRACKING</h4>
-                      <p className="text-sm text-gray-300">Gestos para apartar negatividad</p>
+                      <p className="text-sm text-gray-300">Manipula objetos y defiéndete</p>
                     </CardContent>
                   </Card>
                   <Card className="border-2 border-border/50 bg-card/90 backdrop-blur-md horror-glow hover:border-primary/50 transition-all duration-300 group">
@@ -209,7 +209,7 @@ export default function VRGamePage() {
                         </div>
                       </div>
                       <h4 className="text-lg font-semibold text-white mb-2">MOVIMIENTO CORPORAL</h4>
-                      <p className="text-sm text-gray-300">Agacharse, echarse y esconderse</p>
+                      <p className="text-sm text-gray-300">Escóndete y evade criaturas</p>
                     </CardContent>
                   </Card>
                 </div>
