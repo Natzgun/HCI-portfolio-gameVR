@@ -260,14 +260,6 @@ export default function VRGamePage() {
     >
       {/* Space Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-black opacity-60" />
-      
-      <div
-        className="page-background"
-        style={{
-          backgroundImage: "url('/prado.jpg')",
-          opacity: "0.15"
-        }}
-      />
 
       {/* Floating Space Rocks */}
       {rocks.map((rock) => (
@@ -280,7 +272,7 @@ export default function VRGamePage() {
             width: `${rock.size}px`,
             height: `${rock.size}px`,
             transform: `translate(-50%, -50%) rotate(${rock.rotation}deg)`,
-            zIndex: dragState.rockId === rock.id ? 1000 : 1,
+            zIndex: dragState.rockId === rock.id ? 5 : 1,
           }}
           onMouseDown={(e) => handleRockMouseDown(e, rock.id)}
         >
@@ -352,34 +344,34 @@ export default function VRGamePage() {
           <div className="mx-auto max-w-6xl">
             {/* Game Description */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-foreground mb-6">Worst Nightmare</h2>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Gravity</h2>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl text-white font-medium mb-6 drop-shadow-lg">
-                  Una experiencia de realidad virtual de horror y suspenso
+                  Una experiencia de realidad virtual de supervivencia espacial
                 </p>
                 <div className="text-left bg-card/95 backdrop-blur-md border border-border/70 rounded-lg p-6 mb-8 horror-glow shadow-2xl">
                   <h3 className="text-lg font-semibold text-white mb-4">Concepto Central</h3>
                   <p className="text-gray-100 leading-relaxed mb-4">
-                    Una experiencia VR de <span className="text-red-400 font-medium">horror psicológico</span> que utiliza interacciones multimodales 
-                    (gestos, movimiento) para sumergir al jugador en tres niveles terroríficos. El objetivo es sobrevivir 
-                    a pesadillas cada vez más intensas mientras enfrentas entidades misteriosas y resuelves enigmas macabros.
+                    Una experiencia VR de <span className="text-blue-400 font-medium">supervivencia espacial</span> que utiliza interacciones multimodales 
+                    (gestos, movimiento) para sumergir al jugador en una estación espacial en ruinas. El objetivo es escapar 
+                    antes de quedarte sin oxígeno, usando rocas y escombros para moverte en gravedad cero.
                   </p>
                   
                   <div className="grid md:grid-cols-2 gap-6 mt-6">
                     <div>
-                      <h4 className="text-sm font-semibold text-red-400 mb-2">Elementos de Terror:</h4>
+                      <h4 className="text-sm font-semibold text-blue-400 mb-2">Elementos de Juego:</h4>
                       <ul className="text-sm text-gray-200 space-y-1">
-                        <li>• Atmósfera opresiva y claustrofóbica</li>
-                        <li>• Entidades hostiles que acechan al jugador</li>
-                        <li>• Enigmas psicológicos perturbadores</li>
+                        <li>• Física de gravedad cero</li>
+                        <li>• Sistema de oxígeno limitado</li>
+                        <li>• Mecánicas de propulsión con objetos</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-red-400 mb-2">Audiencia Objetivo:</h4>
+                      <h4 className="text-sm font-semibold text-blue-400 mb-2">Audiencia Objetivo:</h4>
                       <ul className="text-sm text-gray-200 space-y-1">
-                        <li>• Fanáticos del horror en VR</li>
+                        <li>• Fanáticos de la ciencia ficción</li>
                         <li>• Jugadores de experiencias inmersivas</li>
-                        <li>• Adultos (18+ por contenido de terror)</li>
+                        <li>• Todas las edades (contenido familiar)</li>
                       </ul>
                     </div>
                   </div>
@@ -396,7 +388,7 @@ export default function VRGamePage() {
                         </div>
                       </div>
                       <h4 className="text-lg font-semibold text-white mb-2">HAND TRACKING</h4>
-                      <p className="text-sm text-gray-300">Manipula objetos y defiéndete</p>
+                      <p className="text-sm text-gray-300">Agarra rocas y escombros para impulsarte</p>
                     </CardContent>
                   </Card>
                   <Card className="border-2 border-border/50 bg-card/90 backdrop-blur-md horror-glow hover:border-primary/50 transition-all duration-300 group">
@@ -410,7 +402,7 @@ export default function VRGamePage() {
                         </div>
                       </div>
                       <h4 className="text-lg font-semibold text-white mb-2">MOVIMIENTO CORPORAL</h4>
-                      <p className="text-sm text-gray-300">Escóndete y evade criaturas</p>
+                      <p className="text-sm text-gray-300">Navega en gravedad cero</p>
                     </CardContent>
                   </Card>
                 </div>
