@@ -722,3 +722,105 @@ body:has([data-page="homepage"]) {
     transform: translateY(0);
   }
 }
+
+/* Space Rocks - Astronaut Theme */
+.space-rock {
+  transition: all 0.2s ease;
+  user-select: none;
+  z-index: 1;
+}
+
+.space-rock:hover {
+  transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+.rock-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 45% 55% 40% 60%;
+  background: linear-gradient(145deg, 
+    #4a5568 0%,
+    #2d3748 30%, 
+    #1a202c  70%, 
+    #171923 100%
+  );
+  border: 2px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.rock-surface {
+  position: absolute;
+  inset: 3px;
+  border-radius: 40% 50% 35% 55%;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(96, 165, 250, 0.1) 0%,
+    rgba(59, 130, 246, 0.05) 40%,
+    transparent 70%
+  );
+  opacity: 0.6;
+}
+
+.rock-highlight {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 30%;
+  height: 25%;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  filter: blur(1px);
+}
+
+.rock-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(59, 130, 246, 0.4) 0%,
+    rgba(59, 130, 246, 0.2) 50%,
+    transparent 100%
+  );
+  animation: rockPulse 1s ease-in-out infinite;
+}
+
+@keyframes rockPulse {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.1); 
+  }
+}
+
+/* Space atmosphere enhancements */
+.cursor-crosshair {
+  cursor: crosshair !important;
+}
+
+.cursor-crosshair .space-rock {
+  cursor: grab;
+}
+
+.cursor-crosshair .space-rock:active {
+  cursor: grabbing;
+}
+
+/* Drag feedback animations */
+.space-rock:active .rock-body {
+  transform: scale(1.1);
+  box-shadow: 
+    0 8px 16px rgba(59, 130, 246, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(59, 130, 246, 0.4);
+}

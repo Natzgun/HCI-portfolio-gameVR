@@ -3,7 +3,18 @@
 import { Navigation } from "@/components/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
+
+interface Rock {
+  id: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  rotation: number;
+  rotationSpeed: number;
+}
 
 const timelineData = [
   {
@@ -132,16 +143,206 @@ const timelineData = [
 export default function VRGamePage() {
   const [selectedPhase, setSelectedPhase] = useState(timelineData[0])
   const [showFeedback, setShowFeedback] = useState(false)
+  
+  // Space rocks physics system
+  const [rocks, setRocks] = useState<Rock[]>(() => 
+    Array.from({length: 12}, (_, i) => ({
+      id: i,
+      x: Math.random() * 90 + 5, // 5-95% to avoid edges
+      y: Math.random() * 90 + 5,
+      vx: (Math.random() - 0.5) * 0.2, // Small initial velocity
+      vy: (Math.random() - 0.5) * 0.2,
+      size: Math.random() * 30 + 20, // 20-50px
+      rotation: Math.random() * 360,
+      rotationSpeed: (Math.random() - 0.5) * 2
+    }))
+  )
+  
+  const [dragState, setDragState] = useState<{
+    rockId: number | null;
+    startPos: { x: number; y: number };
+    currentPos: { x: number; y: number };
+  }>({ rockId: null, startPos: { x: 0, y: 0 }, currentPos: { x: 0, y: 0 } })
+  
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // Physics simulation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRocks(prev => prev.map(rock => ({
+        ...rock,
+        x: Math.max(2, Math.min(98, rock.x + rock.vx)),
+        y: Math.max(2, Math.min(98, rock.y + rock.vy)),
+        vx: rock.vx * 0.98, // Space friction
+        vy: rock.vy * 0.98,
+        rotation: rock.rotation + rock.rotationSpeed,
+        rotationSpeed: rock.rotationSpeed * 0.99
+      })))
+    }, 16) // ~60fps
+    
+    return () => clearInterval(interval)
+  }, [])
+
+  // Rock throwing mechanics
+  const handleRockMouseDown = (e: React.MouseEvent, rockId: number) => {
+    e.preventDefault()
+    const rect = containerRef.current?.getBoundingClientRect()
+    if (!rect) return
+    
+    const startPos = { 
+      x: e.clientX - rect.left, 
+      y: e.clientY - rect.top 
+    }
+    setDragState({ rockId, startPos, currentPos: startPos })
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (dragState.rockId === null) return
+    
+    const rect = containerRef.current?.getBoundingClientRect()
+    if (!rect) return
+    
+    const rawX = e.clientX - rect.left
+    const rawY = e.clientY - rect.top
+    
+    // Limit drag distance to 100px maximum
+    const dx = rawX - dragState.startPos.x
+    const dy = rawY - dragState.startPos.y
+    const distance = Math.sqrt(dx * dx + dy * dy)
+    const maxDistance = 100
+    
+    let limitedX = rawX
+    let limitedY = rawY
+    
+    if (distance > maxDistance) {
+      const ratio = maxDistance / distance
+      limitedX = dragState.startPos.x + (dx * ratio)
+      limitedY = dragState.startPos.y + (dy * ratio)
+    }
+    
+    setDragState(prev => ({
+      ...prev,
+      currentPos: { x: limitedX, y: limitedY }
+    }))
+  }
+
+  const handleMouseUp = () => {
+    if (dragState.rockId === null) return
+    
+    const dx = dragState.currentPos.x - dragState.startPos.x
+    const dy = dragState.currentPos.y - dragState.startPos.y
+    const distance = Math.sqrt(dx * dx + dy * dy)
+    
+    // Reduced force calculation for slower movement
+    const force = Math.min(distance * 0.003, 0.3) // Max force of 0.3
+    
+    setRocks(prev => prev.map(rock => 
+      rock.id === dragState.rockId 
+        ? { 
+            ...rock, 
+            vx: dx * force * 0.03, // Reduced from 0.1 to 0.03
+            vy: dy * force * 0.03,
+            rotationSpeed: force * 2 // Reduced from 5 to 2
+          }
+        : rock
+    ))
+    
+    setDragState({ rockId: null, startPos: { x: 0, y: 0 }, currentPos: { x: 0, y: 0 } })
+  }
 
   return (
-    <div className="min-h-screen bg-background opacity-0 animate-[fadeIn_0.7s_ease-in-out_forwards] relative">
+    <div 
+      ref={containerRef}
+      className="min-h-screen bg-background opacity-0 animate-[fadeIn_0.7s_ease-in-out_forwards] relative overflow-hidden cursor-crosshair"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
+      {/* Space Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-black opacity-60" />
+      
       <div
         className="page-background"
         style={{
           backgroundImage: "url('/prado.jpg')",
-          opacity: "0.3"
+          opacity: "0.15"
         }}
       />
+
+      {/* Floating Space Rocks */}
+      {rocks.map((rock) => (
+        <div
+          key={rock.id}
+          className="absolute space-rock cursor-grab hover:cursor-grab active:cursor-grabbing"
+          style={{
+            left: `${rock.x}%`,
+            top: `${rock.y}%`,
+            width: `${rock.size}px`,
+            height: `${rock.size}px`,
+            transform: `translate(-50%, -50%) rotate(${rock.rotation}deg)`,
+            zIndex: dragState.rockId === rock.id ? 1000 : 1,
+          }}
+          onMouseDown={(e) => handleRockMouseDown(e, rock.id)}
+        >
+          <div className="rock-body">
+            <div className="rock-surface"></div>
+            <div className="rock-highlight"></div>
+            {dragState.rockId === rock.id && (
+              <div className="rock-glow"></div>
+            )}
+          </div>
+        </div>
+      ))}
+
+      {/* Drag Direction Arrow */}
+      {dragState.rockId !== null && (
+        <div
+          className="absolute pointer-events-none z-50"
+          style={{
+            left: dragState.startPos.x,
+            top: dragState.startPos.y,
+          }}
+        >
+          <svg
+            width="200"
+            height="200"
+            className="absolute"
+            style={{
+              left: '-100px',
+              top: '-100px',
+            }}
+          >
+            <defs>
+              <marker
+                id="arrowhead"
+                markerWidth="10"
+                markerHeight="7"
+                refX="9"
+                refY="3.5"
+                orient="auto"
+              >
+                <polygon
+                  points="0 0, 10 3.5, 0 7"
+                  fill="#60a5fa"
+                  stroke="#3b82f6"
+                  strokeWidth="1"
+                />
+              </marker>
+            </defs>
+            <line
+              x1="100"
+              y1="100"
+              x2={100 + (dragState.currentPos.x - dragState.startPos.x)}
+              y2={100 + (dragState.currentPos.y - dragState.startPos.y)}
+              stroke="#3b82f6"
+              strokeWidth="3"
+              markerEnd="url(#arrowhead)"
+              opacity="0.8"
+            />
+          </svg>
+
+        </div>
+      )}
 
       <Navigation />
 
