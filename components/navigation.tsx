@@ -4,7 +4,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Home, FileText, Gamepad2, Zap, Users, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -84,7 +83,6 @@ export function Navigation() {
 
 					{/* Right side controls */}
 					<div className="flex items-center space-x-2">
-						<ThemeToggle />
 						<div className="md:hidden">
 							<Button variant="ghost" size="sm" onClick={toggleMenu}>
 								{isMenuOpen ? (
