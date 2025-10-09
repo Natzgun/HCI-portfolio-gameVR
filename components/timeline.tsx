@@ -50,7 +50,7 @@ export function Timeline({ items }: TimelineProps) {
 
   return (
     <div className="relative">
-      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary to-primary/50"></div>
+      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary"></div>
 
       <div className="space-y-8">
         {items.map((item, index) => (

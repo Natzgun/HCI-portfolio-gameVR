@@ -4,15 +4,14 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Home, FileText, Gamepad2, Zap, Users, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
 	{ name: "Inicio", href: "/", icon: Home },
-	{ name: "Overview", href: "/overview", icon: FileText },
+	//{ name: "Overview", href: "/overview", icon: FileText },
 	{ name: "Juego VR", href: "/vr-game", icon: Gamepad2 },
-	// { name: "Proyecto Final", href: "/final-project", icon: Zap },
+	{ name: "Proyecto Final", href: "/final-project", icon: Zap },
 	{ name: "Sobre nosotros", href: "/team", icon: Users },
 ]
 
@@ -33,20 +32,34 @@ export function Navigation() {
 						className="flex items-center space-x-2"
 						onClick={closeMenu}
 					>
-						<div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center horror-glow">
-							<span className="text-primary-foreground font-bold text-sm">
-								VR
-							</span>
-						</div>
-						<span className="font-bold text-lg bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-							IHC
-						</span>
+						<img 
+							src="/worstg.png" 
+							alt="Worst Generation Logo"
+							className="h-8 w-auto drop-shadow-lg logo-glow scale-[0.7]"
+						/>
 					</Link>
 
 					{/* Desktop Navigation - Centrada */}
 					<nav className="hidden md:flex items-center space-x-1 absolute left-1/2 transform -translate-x-1/2">
 						{navigation.map((item) => {
 							const Icon = item.icon
+							// Deshabilitar Proyecto Final
+							if (item.name === "Proyecto Final") {
+								return (
+									<Button
+										key={item.href}
+										variant="ghost"
+										className="text-sm font-medium opacity-50 cursor-not-allowed"
+										disabled
+									>
+										<div className="flex items-center space-x-2">
+											<Icon className="h-4 w-4" />
+											<span>{item.name}</span>
+										</div>
+									</Button>
+								)
+							}
+
 							return (
 								<Button
 									key={item.href}
@@ -70,7 +83,6 @@ export function Navigation() {
 
 					{/* Right side controls */}
 					<div className="flex items-center space-x-2">
-						<ThemeToggle />
 						<div className="md:hidden">
 							<Button variant="ghost" size="sm" onClick={toggleMenu}>
 								{isMenuOpen ? (
@@ -98,6 +110,21 @@ export function Navigation() {
 						<nav className="container py-4 space-y-2">
 							{navigation.map((item) => {
 								const Icon = item.icon
+								
+								// Deshabilitar Proyecto Final en móvil
+								if (item.name === "Proyecto Final") {
+									return (
+										<Button
+											key={item.href}
+											variant="ghost"
+											className="w-full justify-start opacity-50 cursor-not-allowed"
+											disabled
+										>
+											<Icon className="h-4 w-4 mr-2" />
+											{item.name}
+										</Button>
+									)
+								}
 								return (
 									<Button
 										key={item.href}
