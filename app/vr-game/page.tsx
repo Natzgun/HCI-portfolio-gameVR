@@ -151,6 +151,198 @@ export default function VRGamePage() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
+      {/* Sistema Solar de Fondo */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Sol */}
+        <div 
+          className="absolute w-32 h-32 rounded-full bg-gradient-radial from-yellow-300 via-orange-400 to-orange-600"
+          style={{
+            top: '15%',
+            left: '10%',
+            boxShadow: '0 0 80px rgba(251, 191, 36, 0.8), 0 0 120px rgba(251, 191, 36, 0.4)',
+            animation: 'rotate-slow 60s linear infinite'
+          }}
+        >
+          {/* Llamaradas solares */}
+          <div className="absolute inset-0 rounded-full bg-yellow-200/30 animate-pulse"></div>
+        </div>
+
+        {/* Mercurio */}
+        <div 
+          className="absolute w-6 h-6 rounded-full bg-gradient-to-br from-gray-400 to-gray-600"
+          style={{
+            top: '12%',
+            left: '20%',
+            boxShadow: '0 0 10px rgba(156, 163, 175, 0.5)',
+            animation: 'orbit-mercury 15s linear infinite'
+          }}
+        ></div>
+
+        {/* Venus */}
+        <div 
+          className="absolute w-9 h-9 rounded-full bg-gradient-to-br from-yellow-200 to-orange-300"
+          style={{
+            top: '25%',
+            left: '25%',
+            boxShadow: '0 0 15px rgba(253, 224, 71, 0.6)',
+            animation: 'orbit-venus 20s linear infinite'
+          }}
+        ></div>
+
+        {/* Tierra */}
+        <div 
+          className="absolute w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 via-green-400 to-blue-600"
+          style={{
+            top: '35%',
+            left: '30%',
+            boxShadow: '0 0 20px rgba(59, 130, 246, 0.7)',
+            animation: 'orbit-earth 25s linear infinite'
+          }}
+        >
+          {/* Luna de la Tierra */}
+          <div className="absolute w-2 h-2 rounded-full bg-gray-300 -top-4 left-6"></div>
+        </div>
+
+        {/* Marte */}
+        <div 
+          className="absolute w-8 h-8 rounded-full bg-gradient-to-br from-red-400 to-red-700"
+          style={{
+            top: '45%',
+            left: '35%',
+            boxShadow: '0 0 15px rgba(239, 68, 68, 0.6)',
+            animation: 'orbit-mars 30s linear infinite'
+          }}
+        ></div>
+
+        {/* Júpiter */}
+        <div 
+          className="absolute w-20 h-20 rounded-full bg-gradient-to-br from-orange-200 via-amber-300 to-orange-400"
+          style={{
+            top: '60%',
+            left: '75%',
+            boxShadow: '0 0 30px rgba(251, 191, 36, 0.5)',
+            animation: 'orbit-jupiter 40s linear infinite',
+            background: 'linear-gradient(to bottom, #fed7aa 0%, #fdba74 25%, #fb923c 50%, #fdba74 75%, #fed7aa 100%)'
+          }}
+        >
+          {/* Bandas de Júpiter */}
+          <div className="absolute inset-0 rounded-full opacity-40">
+            <div className="absolute w-full h-1 bg-amber-600 top-1/4"></div>
+            <div className="absolute w-full h-1 bg-amber-700 top-1/2"></div>
+            <div className="absolute w-full h-1 bg-amber-600 top-3/4"></div>
+          </div>
+        </div>
+
+        {/* Saturno con anillos */}
+        <div 
+          className="absolute"
+          style={{
+            top: '20%',
+            right: '15%',
+            animation: 'orbit-saturn 50s linear infinite'
+          }}
+        >
+          <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-yellow-100 to-amber-200"
+            style={{
+              boxShadow: '0 0 25px rgba(251, 191, 36, 0.4)'
+            }}
+          ></div>
+          {/* Anillos de Saturno */}
+          <div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-6 rounded-full border-4 border-amber-300/60"
+            style={{
+              transform: 'translate(-50%, -50%) rotateX(75deg)',
+              boxShadow: '0 0 10px rgba(251, 191, 36, 0.3)'
+            }}
+          ></div>
+        </div>
+
+        {/* Urano */}
+        <div 
+          className="absolute w-12 h-12 rounded-full bg-gradient-to-br from-cyan-300 to-blue-400"
+          style={{
+            top: '70%',
+            left: '15%',
+            boxShadow: '0 0 20px rgba(34, 211, 238, 0.5)',
+            animation: 'orbit-uranus 55s linear infinite'
+          }}
+        ></div>
+
+        {/* Neptuno */}
+        <div 
+          className="absolute w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-700"
+          style={{
+            top: '80%',
+            right: '25%',
+            boxShadow: '0 0 20px rgba(99, 102, 241, 0.5)',
+            animation: 'orbit-neptune 60s linear infinite'
+          }}
+        ></div>
+      </div>
+
+      <style jsx>{`
+        @keyframes rotate-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes orbit-mercury {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(30px, -20px); }
+          50% { transform: translate(60px, 0); }
+          75% { transform: translate(30px, 20px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-venus {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(40px, -30px); }
+          50% { transform: translate(80px, 0); }
+          75% { transform: translate(40px, 30px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-earth {
+          0% { transform: translate(0, 0) rotate(0deg); }
+          25% { transform: translate(50px, -40px) rotate(90deg); }
+          50% { transform: translate(100px, 0) rotate(180deg); }
+          75% { transform: translate(50px, 40px) rotate(270deg); }
+          100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        @keyframes orbit-mars {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(-40px, -30px); }
+          50% { transform: translate(-80px, 0); }
+          75% { transform: translate(-40px, 30px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-jupiter {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(-60px, 40px); }
+          50% { transform: translate(-120px, 0); }
+          75% { transform: translate(-60px, -40px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-saturn {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(50px, 50px); }
+          50% { transform: translate(100px, 0); }
+          75% { transform: translate(50px, -50px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-uranus {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(-50px, -40px); }
+          50% { transform: translate(-100px, 0); }
+          75% { transform: translate(-50px, 40px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes orbit-neptune {
+          0% { transform: translate(0, 0); }
+          25% { transform: translate(60px, -50px); }
+          50% { transform: translate(120px, 0); }
+          75% { transform: translate(60px, 50px); }
+          100% { transform: translate(0, 0); }
+        }
+      `}</style>
+
       {/* Background stars */}
       <div className="absolute inset-0 pointer-events-none">
         {backgroundStars.map((star) => (
@@ -262,16 +454,70 @@ export default function VRGamePage() {
         />
       </a>
 
-      {/* Roadmap Link Button */}
+      {/* Roadmap Link Button - Luna Grande */}
       <a
         href="/roadmap"
-        className="absolute top-6 right-6 z-50 px-4 py-2 bg-blue-600/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 hover:scale-105 transition-all text-white font-semibold flex items-center gap-2 shadow-lg hover:shadow-blue-500/50 pointer-events-auto"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-48 h-48 rounded-full bg-gradient-to-br from-yellow-100 via-gray-200 to-gray-300 hover:from-yellow-200 hover:via-gray-100 hover:to-gray-200 transition-all duration-500 flex flex-col items-center justify-center shadow-2xl hover:shadow-yellow-200/50 pointer-events-auto group overflow-hidden hover:scale-110 animate-pulse-slow"
+        style={{
+          boxShadow: '0 0 60px rgba(255, 255, 200, 0.8), 0 0 120px rgba(255, 255, 200, 0.4), inset -15px -15px 40px rgba(0, 0, 0, 0.2)',
+        }}
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        Ver Roadmap
+        {/* Cráteres de luna */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-4 left-6 w-6 h-6 rounded-full bg-gray-400/40"></div>
+          <div className="absolute top-12 right-8 w-5 h-5 rounded-full bg-gray-400/30"></div>
+          <div className="absolute bottom-8 left-10 w-7 h-7 rounded-full bg-gray-400/40"></div>
+          <div className="absolute bottom-6 right-6 w-4 h-4 rounded-full bg-gray-400/35"></div>
+          <div className="absolute top-20 left-16 w-3 h-3 rounded-full bg-gray-400/25"></div>
+        </div>
+        
+        {/* Contenido */}
+        <div className="relative z-10 flex flex-col items-center">
+          <svg className="w-12 h-12 mb-2 text-gray-700 group-hover:text-gray-800 transition-colors animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+          </svg>
+          <span className="text-gray-800 font-bold text-base text-center leading-tight">¡Haz clic!<br/>Ver Roadmap</span>
+        </div>
+        
+        {/* Brillo lunar animado */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        {/* Anillos de pulsación */}
+        <div className="absolute inset-0 rounded-full border-4 border-yellow-300/50 animate-ping-slow"></div>
       </a>
+      
+      <style jsx>{`
+        @keyframes pulse-slow {
+          0%, 100% { 
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+          }
+          50% { 
+            transform: translate(-50%, -50%) scale(1.05);
+            opacity: 0.95;
+          }
+        }
+        @keyframes ping-slow {
+          0% {
+            transform: scale(1);
+            opacity: 0.8;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.4;
+          }
+          100% {
+            transform: scale(1.2);
+            opacity: 0;
+          }
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
+        }
+        .animate-ping-slow {
+          animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+      `}</style>
 
       {/* Small Constellation - Below Roadmap Button */}
       <div className="absolute top-20 right-6 z-30 pointer-events-none">
