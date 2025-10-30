@@ -62,8 +62,8 @@ export default function HomePage() {
         {/* GIF Background - Bottom layer */}
         <div className="gif-background">
           <img 
-            src="/backrooms-fog-background.gif" 
-            alt="Backrooms fog background"
+            src="/background-space.jpg" 
+            alt="Space background"
             className="w-full h-full object-cover"
           />
         </div>
