@@ -127,27 +127,27 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Final Project Button - Disabled */}
-            <div className="main-button final-button disabled-button mysterious-glow">
-              <div className="button-icon">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="52"
-                  height="52"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  className="text-white drop-shadow-lg"
-                >
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12,6 12,12 16,14"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                </svg>
+            {/* Final Project Button */}
+            <Link href="/final-project" className="group">
+                            <div className="main-button final-button mysterious-glow">
+                <div className="button-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="52"
+                    height="52"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-white drop-shadow-lg"
+                  >
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12,6 12,12 16,14"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                  </svg>
+                </div>
+                <span className="button-text">Proyecto Final</span>
+                <div className="button-glow accent-glow"></div>
               </div>
-              <span className="button-text">Proyecto Final</span>
-              <div className="button-glow accent-glow"></div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

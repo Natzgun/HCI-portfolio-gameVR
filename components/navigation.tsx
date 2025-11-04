@@ -43,22 +43,22 @@ export function Navigation() {
 					<nav className="hidden md:flex items-center space-x-1 absolute left-1/2 transform -translate-x-1/2">
 						{navigation.map((item) => {
 							const Icon = item.icon
-							// Deshabilitar Proyecto Final
-							if (item.name === "Proyecto Final") {
-								return (
-									<Button
-										key={item.href}
-										variant="ghost"
-										className="text-sm font-medium opacity-50 cursor-not-allowed"
-										disabled
-									>
-										<div className="flex items-center space-x-2">
-											<Icon className="h-4 w-4" />
-											<span>{item.name}</span>
-										</div>
-									</Button>
-								)
-							}
+							// Habilitar Proyecto Final
+							// if (item.name === "Proyecto Final") {
+							// 	return (
+							// 		<Button
+							// 			key={item.href}
+							// 			variant="ghost"
+							// 			className="text-sm font-medium opacity-50 cursor-not-allowed"
+							// 			disabled
+							// 		>
+							// 			<div className="flex items-center space-x-2">
+							// 				<Icon className="h-4 w-4" />
+							// 				<span>{item.name}</span>
+							// 			</div>
+							// 		</Button>
+							// 	)
+							// }
 
 							return (
 								<Button
@@ -111,20 +111,20 @@ export function Navigation() {
 							{navigation.map((item) => {
 								const Icon = item.icon
 								
-								// Deshabilitar Proyecto Final en móvil
-								if (item.name === "Proyecto Final") {
-									return (
-										<Button
-											key={item.href}
-											variant="ghost"
-											className="w-full justify-start opacity-50 cursor-not-allowed"
-											disabled
-										>
-											<Icon className="h-4 w-4 mr-2" />
-											{item.name}
-										</Button>
-									)
-								}
+								// Habilitar Proyecto Final en móvil
+								// if (item.name === "Proyecto Final") {
+								// 	return (
+								// 		<Button
+								// 			key={item.href}
+								// 			variant="ghost"
+								// 			className="w-full justify-start opacity-50 cursor-not-allowed"
+								// 			disabled
+								// 		>
+								// 			<Icon className="h-4 w-4 mr-2" />
+								// 			{item.name}
+								// 		</Button>
+								// 	)
+								// }
 								return (
 									<Button
 										key={item.href}
