@@ -454,99 +454,48 @@ export default function VRGamePage() {
         />
       </a>
 
-      {/* Roadmap Link Button - Luna Grande */}
-      <a
-        href="/roadmap"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-48 h-48 rounded-full bg-gradient-to-br from-yellow-100 via-gray-200 to-gray-300 hover:from-yellow-200 hover:via-gray-100 hover:to-gray-200 transition-all duration-500 flex flex-col items-center justify-center shadow-2xl hover:shadow-yellow-200/50 pointer-events-auto group overflow-hidden hover:scale-110 animate-pulse-slow"
-        style={{
-          boxShadow: '0 0 60px rgba(255, 255, 200, 0.8), 0 0 120px rgba(255, 255, 200, 0.4), inset -15px -15px 40px rgba(0, 0, 0, 0.2)',
-        }}
-      >
-        {/* Cráteres de luna */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-4 left-6 w-6 h-6 rounded-full bg-gray-400/40"></div>
-          <div className="absolute top-12 right-8 w-5 h-5 rounded-full bg-gray-400/30"></div>
-          <div className="absolute bottom-8 left-10 w-7 h-7 rounded-full bg-gray-400/40"></div>
-          <div className="absolute bottom-6 right-6 w-4 h-4 rounded-full bg-gray-400/35"></div>
-          <div className="absolute top-20 left-16 w-3 h-3 rounded-full bg-gray-400/25"></div>
-        </div>
-        
-        {/* Contenido */}
-        <div className="relative z-10 flex flex-col items-center">
-          <svg className="w-12 h-12 mb-2 text-gray-700 group-hover:text-gray-800 transition-colors animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+      {/* Centered Content: Constellation and Button */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-8 z-50">
+        {/* Large Constellation */}
+        <div className="pointer-events-none">
+          <svg width="450" height="360" viewBox="0 0 150 120" style={{ transform: 'scaleY(-1)' }}>
+            {/* Background stars */}
+            {[...Array(25)].map((_, i) => (
+              <circle
+                key={`constellation-star-${i}`}
+                cx={Math.random() * 150}
+                cy={Math.random() * 120}
+                r="0.6"
+                fill="white"
+                opacity={Math.random() * 0.5 + 0.3}
+                className="animate-pulse"
+                style={{ animationDelay: `${Math.random() * 2}s` }}
+              />
+            ))}
+            
+            {/* Connection lines */}
+            <line x1="30" y1="50" x2="60" y2="30" stroke="#60a5fa" strokeWidth="2" opacity="0.5" />
+            <line x1="60" y1="30" x2="90" y2="50" stroke="#60a5fa" strokeWidth="2" opacity="0.5" />
+            <line x1="90" y1="50" x2="120" y2="30" stroke="#60a5fa" strokeWidth="2" opacity="0.5" />
+            
+            {/* Constellation nodes */}
+            <circle cx="30" cy="50" r="5" fill="#60a5fa" className="animate-pulse" />
+            <circle cx="60" cy="30" r="5" fill="#60a5fa" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
+            <circle cx="90" cy="50" r="5" fill="#60a5fa" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
+            <circle cx="120" cy="30" r="5" fill="#fbbf24" className="animate-pulse" style={{ animationDelay: '0.6s' }} />
           </svg>
-          <span className="text-gray-800 font-bold text-base text-center leading-tight">¡Haz clic!<br/>Ver Roadmap</span>
         </div>
-        
-        {/* Brillo lunar animado */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        
-        {/* Anillos de pulsación */}
-        <div className="absolute inset-0 rounded-full border-4 border-yellow-300/50 animate-ping-slow"></div>
-      </a>
-      
-      <style jsx>{`
-        @keyframes pulse-slow {
-          0%, 100% { 
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-          }
-          50% { 
-            transform: translate(-50%, -50%) scale(1.05);
-            opacity: 0.95;
-          }
-        }
-        @keyframes ping-slow {
-          0% {
-            transform: scale(1);
-            opacity: 0.8;
-          }
-          50% {
-            transform: scale(1.1);
-            opacity: 0.4;
-          }
-          100% {
-            transform: scale(1.2);
-            opacity: 0;
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-        .animate-ping-slow {
-          animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-      `}</style>
 
-      {/* Small Constellation - Below Roadmap Button */}
-      <div className="absolute top-20 right-6 z-30 pointer-events-none">
-        <svg width="300" height="240" viewBox="0 0 150 120" style={{ transform: 'scaleY(-1)' }}>
-          {/* Background stars */}
-          {[...Array(15)].map((_, i) => (
-            <circle
-              key={`constellation-star-${i}`}
-              cx={Math.random() * 150}
-              cy={Math.random() * 120}
-              r="0.5"
-              fill="white"
-              opacity={Math.random() * 0.4 + 0.3}
-              className="animate-pulse"
-              style={{ animationDelay: `${Math.random() * 2}s` }}
-            />
-          ))}
-          
-          {/* Connection lines */}
-          <line x1="30" y1="50" x2="60" y2="30" stroke="#60a5fa" strokeWidth="1.5" opacity="0.4" />
-          <line x1="60" y1="30" x2="90" y2="50" stroke="#60a5fa" strokeWidth="1.5" opacity="0.4" />
-          <line x1="90" y1="50" x2="120" y2="30" stroke="#60a5fa" strokeWidth="1.5" opacity="0.4" />
-          
-          {/* Constellation nodes */}
-          <circle cx="30" cy="50" r="4" fill="#60a5fa" className="animate-pulse" />
-          <circle cx="60" cy="30" r="4" fill="#60a5fa" className="animate-pulse" style={{ animationDelay: '0.2s' }} />
-          <circle cx="90" cy="50" r="4" fill="#60a5fa" className="animate-pulse" style={{ animationDelay: '0.4s' }} />
-          <circle cx="120" cy="30" r="4" fill="#fbbf24" className="animate-pulse" style={{ animationDelay: '0.6s' }} />
-        </svg>
+        {/* Roadmap Link Button */}
+        <a
+          href="/roadmap"
+          className="px-8 py-4 text-xl bg-blue-600/80 backdrop-blur-sm rounded-lg hover:bg-blue-500 hover:scale-105 transition-all text-white font-semibold flex items-center gap-3 shadow-lg hover:shadow-blue-500/50 pointer-events-auto"
+        >
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Ver Roadmap
+        </a>
       </div>
 
       {/* Game Title and Brief Description - Top Left */}
