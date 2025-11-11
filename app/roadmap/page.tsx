@@ -29,6 +29,7 @@ interface ConstellationNode {
   status: 'completed' | 'in-progress';
   image?: string;
   videoLink?: string;
+  videos?: { title: string; url: string; embedId: string }[];
   feedback?: Feedback;
 }
 
@@ -38,7 +39,7 @@ const constellationData: ConstellationNode[] = [
     title: "Aterrizaje de ideas e investigación",
     phase: "Investigación",
     date: "Semana 1",
-    x: 0.2,
+    x: 0.15,
     y: 0.3,
     description: "Lluvia de ideas para definir el concepto del juego como herramienta terapéutica. Investigación de interacciones multimodales en VR.",
     achievements: [
@@ -55,8 +56,8 @@ const constellationData: ConstellationNode[] = [
     title: "Real Life Testing",
     phase: "Real Life Testing",
     date: "Semana 2",
-    x: 0.4,
-    y: 0.5,
+    x: 0.32,
+    y: 0.45,
     description: "Experiencia física para validar mecánicas de interacción antes del desarrollo digital con usuarios reales.",
     achievements: [
       "Experiencia física que simula mecánicas VR",
@@ -95,7 +96,7 @@ const constellationData: ConstellationNode[] = [
     title: "Realización de maqueta y validación",
     phase: "Diseño y Validación",
     date: "Semana 2",
-    x: 0.6,
+    x: 0.49,
     y: 0.3,
     description: "Prototipo de baja fidelidad. Laberinto físico con persecución y defensa mediante objetos encontrados.",
     achievements: [
@@ -145,8 +146,8 @@ const constellationData: ConstellationNode[] = [
     title: "Prototipado y Desarrollo",
     phase: "Desarrollo",
     date: "Semana 3-4",
-    x: 0.8,
-    y: 0.5,
+    x: 0.66,
+    y: 0.45,
     description: "Prototipo funcional en Unity. Implementación de hand tracking para interacciones naturales e intuitivas.",
     achievements: [
       "Hand tracking para herramientas de luz",
@@ -154,8 +155,37 @@ const constellationData: ConstellationNode[] = [
       "Estímulos de miedo y control",
       "Movimiento corporal e interacción gestual",
     ],
-    status: 'in-progress',
+    status: 'completed',
     image: "/vr-prototype-development-unity-editor-interface.jpg"
+  },
+  {
+    id: "5",
+    title: "Simulación del Juego",
+    phase: "Demostración",
+    date: "Semana 5",
+    x: 0.83,
+    y: 0.3,
+    description: "Experiencia completa del juego VR en acción. Observa cómo las mecánicas, interacciones y atmósfera cobran vida.",
+    achievements: [
+      "Video demostrativo completo del gameplay",
+      "Muestra de todas las mecánicas implementadas",
+      "Experiencia inmersiva en realidad virtual",
+      "Validación del concepto final",
+    ],
+    status: 'completed',
+    image: "/game-simulation-thumbnail.png",
+    videos: [
+      {
+        title: "Escenario: Victoria",
+        url: "https://youtu.be/pg3VO4VGZ1Q",
+        embedId: "pg3VO4VGZ1Q"
+      },
+      {
+        title: "Escenario: Derrota",
+        url: "https://youtu.be/54H9Fpn50_0",
+        embedId: "54H9Fpn50_0"
+      }
+    ]
   }
 ]
 
@@ -570,8 +600,34 @@ export default function RoadmapPage() {
               </div>
             )}
 
-            {/* Video Link */}
-            {selectedNode.videoLink && (
+            {/* Embedded Videos - YouTube Style */}
+            {selectedNode.videos && selectedNode.videos.length > 0 && (
+              <div className="mb-6 space-y-6">
+                <h3 className="text-2xl font-semibold text-blue-400 mb-4 flex items-center gap-2">
+                  <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  Videos de Demostración
+                </h3>
+                {selectedNode.videos.map((video, index) => (
+                  <div key={index} className="bg-black/40 rounded-lg p-4 border border-blue-500/30">
+                    <h4 className="text-xl font-semibold text-white mb-3">{video.title}</h4>
+                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                      <iframe
+                        className="absolute top-0 left-0 w-full h-full rounded-lg"
+                        src={`https://www.youtube.com/embed/${video.embedId}`}
+                        title={video.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Video Link (for backward compatibility) */}
+            {selectedNode.videoLink && !selectedNode.videos && (
               <a 
                 href={selectedNode.videoLink}
                 target="_blank"
