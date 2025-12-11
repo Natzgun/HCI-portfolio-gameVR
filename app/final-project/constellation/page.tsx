@@ -7,6 +7,16 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Moment {
+  user: string;
+  timestamps: string;
+}
+
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
 interface ConstellationNode {
   id: string;
   title: string;
@@ -17,6 +27,9 @@ interface ConstellationNode {
   mechanics: string[];
   status: 'completed' | 'in-progress';
   interviews?: Interview[];
+  moments?: Moment[];
+  galleryImages?: GalleryImage[];
+  driveLink?: string;
 }
 
 interface Interview {
@@ -151,6 +164,39 @@ const constellationData: ConstellationNode[] = [
     interviews: interviews,
   },
   {
+    id: "1.2",
+    title: "Entrevistas Presenciales",
+    phase: "Investigación de Usuarios",
+    x: 0.28,
+    y: 0.45,
+    description: "Entrevistas presenciales: Se usaron para la creación de personas en base a un grupo y también obtener sus tareas.",
+    mechanics: [
+      "Identificación de tareas",
+      "Creación de personas",
+      "Análisis de momentos clave"
+    ],
+    status: 'completed',
+    driveLink: "https://drive.google.com/drive/folders/1T_zfrorHDMMI8hD1COQ7iWb4LN3ac70s?usp=sharing",
+    moments: [
+      { user: "Camila Yoselin", timestamps: "0:23 - 1:09 - 1:58" },
+      { user: "Jose Paredes", timestamps: "0:53 - 1:46 - 2:27 - 3:00" },
+      { user: "Kenny Borja", timestamps: "1:14 - 2:57 - 3:33" },
+      { user: "Leonardo Bellido", timestamps: "0:53 - 1:17" },
+      { user: "Walter", timestamps: "0:33 - 1:23" },
+      { user: "Ronaldo Sonco", timestamps: "1:20 - 2:09" },
+      { user: "Marcos Abel", timestamps: "1:43 - 2:56" },
+      { user: "Cristian T. Sarasa", timestamps: "0:26 - 1:45" },
+      { user: "Cristian T. Sarasa 2", timestamps: "0:06 - 1:04" },
+      { user: "C. Taipe", timestamps: "0:45 - 1:48 - 3:18" }
+    ],
+    galleryImages: [
+      { src: "/usersInterview/abel.png", alt: "Entrevista Abel" },
+      { src: "/usersInterview/camila.png", alt: "Entrevista Camila" },
+      { src: "/usersInterview/leo.png", alt: "Entrevista Leo" },
+      { src: "/usersInterview/taipe.png", alt: "Entrevista Taipe" }
+    ]
+  },
+  {
     id: "1.5",
     title: "Necesidades Identificadas",
     phase: "Análisis de Hallazgos",
@@ -177,18 +223,48 @@ const constellationData: ConstellationNode[] = [
   },
   {
     id: "3",
-    title: "Prototipo",
+    title: "Storyboard & Prototipo",
     phase: "Diseño",
     x: 0.65,
     y: 0.3,
-    description: "Maqueta de baja fidelidad para reconstruir el escenario y validar la experiencia de usuario.",
+    description: "Evaluación de prototipo de bajo nivel (storyboard): Cada usuario a utilizado el prototipo de bajo nivel para su primera evaluación de interacción.",
     mechanics: [
       "Construcción de ambiente físico",
       "Pruebas de iluminación y atmósfera",
       "Validación de interacciones multimodales",
       "Refinamiento basado en observaciones"
     ],
-    status: 'completed'
+    status: 'completed',
+    driveLink: "https://drive.google.com/drive/folders/1KR1OJVRKsNlh750GfI3xJ4Nd95Zn23ag?usp=sharing",
+    moments: [
+      { user: "Ronaldo Soncco", timestamps: "1:18 - 2:04 - 3:38 - 5:30" },
+      { user: "Avelino Lupo", timestamps: "0:21 - 0:35 - 1:02 - 1:43" },
+      { user: "Braulio", timestamps: "0:28 - 1:04 - 1:45 - 1:57" },
+      { user: "Camila 1", timestamps: "0:55 - 1:29 - 1:33 - 1:54" },
+      { user: "Camila 2", timestamps: "0:22 - 0:39 - 1:38 - 2:04" },
+      { user: "Cristian Taipe 1", timestamps: "0:36 - 2:09 - 3:41 - 5:05" },
+      { user: "Cristian Taipe 2", timestamps: "0:19 - 0:40 - 1:03 - 1:30" },
+      { user: "Leonardo Ponze", timestamps: "1:30 - 2:08 - 3:32 - 4:12" }
+    ],
+    galleryImages: [
+      { src: "/storyboard/Crear escenario 1.jpeg", alt: "Crear escenario 1" },
+      { src: "/storyboard/Crear escenario 2.jpeg", alt: "Crear escenario 2" },
+      { src: "/storyboard/Crear escenario 3.jpeg", alt: "Crear escenario 3" },
+      { src: "/storyboard/Crear escenario 4.jpeg", alt: "Crear escenario 4" },
+      { src: "/storyboard/Daily 1.jpeg", alt: "Daily 1" },
+      { src: "/storyboard/Daily 2.jpeg", alt: "Daily 2" },
+      { src: "/storyboard/Daily 3.jpeg", alt: "Daily 3" },
+      { src: "/storyboard/Interaccion 1.jpeg", alt: "Interaccion 1" },
+      { src: "/storyboard/Interaccion 2.jpeg", alt: "Interaccion 2" },
+      { src: "/storyboard/Interaccion 3.jpeg", alt: "Interaccion 3" },
+      { src: "/storyboard/Interaccion 4.jpeg", alt: "Interaccion 4" },
+      { src: "/storyboard/Interaccion 5.jpeg", alt: "Interaccion 5" },
+      { src: "/storyboard/Interaccion 6.jpeg", alt: "Interaccion 6" },
+      { src: "/storyboard/Interaccion 7.jpeg", alt: "Interaccion 7" },
+      { src: "/storyboard/Vocabulario 1.jpeg", alt: "Vocabulario 1" },
+      { src: "/storyboard/Vocabulario 2.jpeg", alt: "Vocabulario 2" },
+      { src: "/storyboard/Vocabulario 3.jpeg", alt: "Vocabulario 3" }
+    ]
   },
   {
     id: "4",
@@ -259,6 +335,24 @@ export default function FinalProjectPage() {
         id: 'interviews',
         title: 'Entrevistas Realizadas',
         content: 'interviews'
+      })
+    }
+    
+    // Slide: Moments (if available)
+    if (selectedNode.moments && selectedNode.moments.length > 0) {
+      slides.push({
+        id: 'moments',
+        title: 'Momentos Interesantes',
+        content: 'moments'
+      })
+    }
+
+    // Slide: Gallery (if available)
+    if (selectedNode.galleryImages && selectedNode.galleryImages.length > 0) {
+      slides.push({
+        id: 'gallery',
+        title: 'Galería de Imágenes',
+        content: 'gallery'
       })
     }
     
@@ -682,6 +776,19 @@ export default function FinalProjectPage() {
                       </li>
                     ))}
                   </ul>
+                  
+                  {selectedNode.driveLink && (
+                    <div className="mt-6">
+                      <Button asChild variant="outline" className="w-full md:w-auto border-blue-500/50 text-blue-400 hover:bg-blue-500/10">
+                        <Link href={selectedNode.driveLink} target="_blank" rel="noopener noreferrer">
+                          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                          </svg>
+                          Ver Carpeta en Drive
+                        </Link>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -802,6 +909,71 @@ export default function FinalProjectPage() {
                       </CardContent>
                     </Card>
                   ))}
+                </div>
+              )}
+
+              {/* Slide: Moments */}
+              {slides[currentSlide]?.content === 'moments' && selectedNode.moments && (
+                <div className="animate-[fadeIn_0.3s_ease-in-out]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                    {selectedNode.moments.map((moment, index) => (
+                      <Card key={index} className="bg-slate-800/50 border-slate-700">
+                        <CardContent className="p-3 md:p-4">
+                          <h4 className="text-blue-400 font-semibold mb-1">{moment.user}</h4>
+                          <p className="text-sm text-gray-300 font-mono bg-black/30 p-2 rounded border border-slate-700/50">
+                            {moment.timestamps}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                  
+                  {selectedNode.driveLink && (
+                    <div className="mt-6 flex justify-center">
+                      <Button asChild variant="outline" className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10">
+                        <Link href={selectedNode.driveLink} target="_blank" rel="noopener noreferrer">
+                          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                          </svg>
+                          Ver Videos en Drive
+                        </Link>
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Slide: Gallery */}
+              {slides[currentSlide]?.content === 'gallery' && selectedNode.galleryImages && (
+                <div className="animate-[fadeIn_0.3s_ease-in-out]">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+                    {selectedNode.galleryImages.map((img, index) => (
+                      <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-slate-700 group">
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-2">
+                          <p className="text-white text-xs text-center font-medium">{img.alt}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {selectedNode.driveLink && (
+                    <div className="mt-6 flex justify-center">
+                      <Button asChild variant="outline" className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10">
+                        <Link href={selectedNode.driveLink} target="_blank" rel="noopener noreferrer">
+                          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                          </svg>
+                          Ver Carpeta Completa
+                        </Link>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

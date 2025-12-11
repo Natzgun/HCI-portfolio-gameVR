@@ -7,7 +7,7 @@ export default function FinalProjectIntroPage() {
       <div className="max-w-4xl w-full bg-black/40 backdrop-blur-md border border-blue-500/30 rounded-2xl p-8 md:p-12 shadow-2xl text-center animate-[fadeIn_0.5s_ease-in-out_forwards]">
         
         <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
-          Shooting Words
+          Talkative
         </h1>
         
         <div className="mt-6 mb-8">
