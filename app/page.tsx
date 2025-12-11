@@ -139,9 +139,7 @@ export default function HomePage() {
                     fill="currentColor"
                     className="text-white drop-shadow-lg"
                   >
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12,6 12,12 16,14"/>
-                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                   </svg>
                 </div>
                 <span className="button-text">Proyecto Final</span>
