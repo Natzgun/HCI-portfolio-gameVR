@@ -41,8 +41,6 @@ interface ConstellationNode {
   phase: string;
   x: number;
   y: number;
-  description: string;
-  mechanics: string[];
   status: 'completed' | 'in-progress';
   image?: string;
   driveLink?: string;
@@ -126,10 +124,8 @@ const constellationData: ConstellationNode[] = [
     id: "1",
     title: "Needfinding",
     phase: "Síntesis",
-    x: 0.15, // Posición 1 (Inicio - Izquierda)
-    y: 0.3,
-    description: "Hallazgos principales que guían el diseño de la solución.",
-    mechanics: ["4 Necesidades Fundamentales", "Foco en fluidez vs traducción", "Compromiso del estudiante"],
+    x: 0.15,
+    y: 0.35,
     status: 'completed',
     image: "/necesidadesClave.png",
     driveLink: "https://drive.google.com/file/d/17ZNrFrJUtT8iwSYfazmRQl_PPpw4x8x9/view?usp=drive_link",
@@ -139,10 +135,8 @@ const constellationData: ConstellationNode[] = [
     id: "2",
     title: "Entrevistas a Usuarios",
     phase: "Investigación",
-    x: 0.30, // Posición 2
-    y: 0.55, // Abajo
-    description: "Recopilación de información cualitativa directa de los usuarios objetivo.",
-    mechanics: ["Entrevistas a profundidad", "Observación de contexto", "Registro de audio y video"],
+    x: 0.30,
+    y: 0.45,
     status: 'completed',
     image: "/usersInterview/camila.png", 
     driveLink: "https://drive.google.com/drive/folders/1T_zfrorHDMMI8hD1COQ7iWb4LN3ac70s?usp=sharing",
@@ -151,12 +145,22 @@ const constellationData: ConstellationNode[] = [
   },
   {
     id: "3",
+    title: "Analisis de Usuarios",
+    phase: "Investigación",
+    x: 0.45,
+    y: 0.35,
+    status: 'completed',
+    image: "/analisisUsuarios.png", 
+    driveLink: "https://drive.google.com/file/d/1_0365q8ntCHkjuMItLneDy2sU9OOS9Me/view?usp=drive_link",
+    interviews: interviews,
+    questionnaires: questionnaires
+  },
+  {
+    id: "4",
     title: "Personas",
     phase: "Definición",
-    x: 0.45, // Posición 3
-    y: 0.25, // Arriba
-    description: "Creación de arquetipos de usuario y análisis de tareas basado en observación presencial.",
-    mechanics: ["Identificación de tareas", "Creación de Personas", "Análisis de momentos clave"],
+    x: 0.60,
+    y: 0.45,
     status: 'completed',
     image: "/persona.png",
     driveLink: "https://drive.google.com/file/d/17U6ums5cjKiD3xhE1t_nIIRMRv40cxqo/view?usp=drive_link",
@@ -174,28 +178,24 @@ const constellationData: ConstellationNode[] = [
     ]
   },
   {
-    id: "4",
+    id: "5",
     title: "Analisis de Tareas",
     phase: "Descubrimiento",
-    x: 0.60, // Posición 4
-    y: 0.45, // Abajo
-    description: "Comprendiendo necesidades, motivaciones y frustraciones a través de entrevistas y cuestionarios.",
-    mechanics: ["1. Planificar y poner atención al entorno contextual", "2. Recordar vocabulario previo y producir expresiones iniciales", "3. Adquirir y procesar nuevo vocabulario en contexto", "4. Producir y usar el vocabulario de forma espontánea"],
+    x: 0.75,
+    y: 0.35,
     status: 'completed',
-    image: "/usersInterview/abel.png",
-    driveLink: "https://drive.google.com/file/d/1DvYZ7UYDKlgtYrDwoBNCaAa1YbBgg9Ur/view?usp=drive_link",
+    image: "/analisisTareas.png",
+    driveLink: "https://drive.google.com/file/d/17X0iZfZcpMIHtq4D4z13Q_V2kECJ79Ph/view?usp=sharing",
   },
   {
-    id: "5",
+    id: "6",
     title: "Storyboard & Prototipo",
     phase: "Diseño Iterativo",
-    x: 0.75, // Posición 5
-    y: 0.30, // Arriba
-    description: "Evaluación de prototipo de bajo nivel e interacciones de iluminación.",
-    mechanics: ["Ambiente físico", "Pruebas de atmósfera", "Validación multimodal"],
+    x: 0.90,
+    y: 0.45,
     status: 'completed',
     image: "/storyboard/Daily 1.jpeg",
-    driveLink: "https://drive.google.com/file/d/14IHEkj-F7frUcb8aj8qc6g8eC8KK7GiF/view?usp=drive_link",
+    driveLink: "https://drive.google.com/drive/folders/1iGJkKfvJ_V8veCn3ZmvuIPrG3W08YrDk?usp=sharing",
     galleryImages: [
       { src: "/storyboard/Interaccion 1.jpeg", alt: "Interacción 1" },
       { src: "/storyboard/Interaccion 2.jpeg", alt: "Interacción 2" },
@@ -204,13 +204,11 @@ const constellationData: ConstellationNode[] = [
     ]
   },
   {
-    id: "6",
+    id: "7",
     title: "Evaluacion con usuarios",
     phase: "Validación Física",
-    x: 0.90, // Posición 6 (Final - Derecha)
-    y: 0.5, // Medio
-    description: "Pruebas físicas con usuarios para validar mecánicas antes del código.",
-    mechanics: ["Laberinto físico", "Mecánicas de supervivencia", "Sistema de defensa", "Feedback real"],
+    x: 1.05,
+    y: 0.35,
     status: 'in-progress',
     image: "/evalUser.png",
     driveLink: "https://drive.google.com/drive/folders/1dXREwZ5glTs1_-OPuvaZ2cW7R7whdqSs?usp=sharing"
@@ -334,15 +332,13 @@ export default function FinalProjectPage() {
           cardContainer.y = y + cardYOffset
           
           const cardWidth = 260
-          const cardHeight = 180
+          const cardHeight = 150 // Reduced height since description is gone
           const halfWidth = cardWidth / 2
           
-          // Define Hit Area for the entire card to ensure robustness
           cardContainer.eventMode = 'static'
           cardContainer.cursor = 'pointer'
           cardContainer.hitArea = new PIXI.Rectangle(-halfWidth, 0, cardWidth, cardHeight)
           
-          // Card interaction logic moved to container to capture all clicks within bounds
           cardContainer.on('pointertap', () => setSelectedNode(nodeData))
           
           const cardBg = new PIXI.Graphics()
@@ -351,7 +347,6 @@ export default function FinalProjectPage() {
           cardBg.stroke({ width: 2, color: nodeData.status === 'completed' ? 0x60a5fa : 0xfbbf24, alpha: 0.5 })
           cardContainer.addChild(cardBg)
           
-          // Hover effects handled on the container
           cardContainer.on('pointerover', () => {
             cardBg.clear()
             cardBg.rect(-halfWidth, 0, cardWidth, cardHeight)
@@ -384,12 +379,12 @@ export default function FinalProjectPage() {
               if (cardContainer.destroyed) return;
               const imageSprite = new PIXI.Sprite(texture)
               imageSprite.width = cardWidth - 20
-              imageSprite.height = 90
+              imageSprite.height = 100 // Slightly taller since description is gone
               imageSprite.x = -halfWidth + 10
-              imageSprite.y = 45
+              imageSprite.y = 40
               
               const mask = new PIXI.Graphics()
-              mask.rect(-halfWidth + 10, 45, cardWidth - 20, 90)
+              mask.rect(-halfWidth + 10, 40, cardWidth - 20, 100)
               mask.fill(0xffffff)
               imageSprite.mask = mask
               cardContainer.addChild(mask)
@@ -397,19 +392,7 @@ export default function FinalProjectPage() {
             }).catch(e => console.error("Error loading image", e))
           }
 
-          const descText = new PIXI.Text({
-            text: nodeData.description.length > 55 ? nodeData.description.substring(0, 52) + '...' : nodeData.description,
-            style: {
-              fontSize: 11,
-              fill: 0xd1d5db,
-              wordWrap: true,
-              wordWrapWidth: cardWidth - 20,
-              lineHeight: 14,
-            }
-          })
-          descText.x = -halfWidth + 10
-          descText.y = 145
-          cardContainer.addChild(descText)
+          // Description Text Removed Here
 
           container.addChild(cardContainer)
           nodes.push(node)
@@ -423,8 +406,6 @@ export default function FinalProjectPage() {
         app.stage.cursor = 'grab'
 
         app.stage.on('pointerdown', (e) => {
-          // Check if we are clicking a constellation node or card first
-          // Pixi handles bubbling, but for dragging stage we only want it if we didn't hit an interactive child
           if (e.target !== app.stage) return; 
           
           isDragging = true
@@ -591,25 +572,9 @@ export default function FinalProjectPage() {
               </div>
             )}
 
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              {selectedNode.description}
-            </p>
+            {/* Description Text Removed Here */}
 
-            {selectedNode.mechanics && (
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-blue-400 mb-4">Puntos Clave</h3>
-                <ul className="space-y-3">
-                  {selectedNode.mechanics.map((mech, index) => (
-                    <li key={index} className="flex items-start gap-3 text-gray-300">
-                      <svg className="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span className="text-base">{mech}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            {/* Mechanics Section Removed Here */}
 
             {selectedNode.interviews && (
               <div className="mt-8 pt-8 border-t border-blue-500/30">
